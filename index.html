@@ -10,6 +10,7 @@
 <body>
     <header id="head">
         <h1>Mihir Mutyampeta</h1>
+        <img src="photo.png" alt="Mihir's Photo" width="150" height="150">
         <h2>Computer Science student at Purdue University</h2>
         <p>
             Contact Information:
@@ -24,8 +25,7 @@
     <section id="introduction">
         <h2>Introduction</h2>
         <p>Welcome! My name is Mihir Mutyampeta, and I am a sophomore at Purdue University, pursuing a dual major in
-            Computer
-            Science and Data Science, as well as a dual minor in Mathematics and Business Economics. <br>
+            Computer Science and Data Science, as well as a dual minor in Mathematics and Business Economics. <br>
             On campus, I am involved in the Data Mine, as a Teaching Assistant in the Corporate Partners program. This
             involves leading a team of 10, working on a data science project for Minecraft, with a mentor for the team,
             who is a full-time professional at Minecraft. <br>
@@ -47,7 +47,27 @@
             <p>Purdue University</p>
             <p>Expected graduation: May 2025</p>
         </div>
-        <!-- Add more education items as needed -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let sections = document.querySelectorAll('#education');
+                for (let section of sections) {
+                    let h2 = section.querySelector('h2');
+                    let children = Array.from(section.querySelectorAll('.item'));
+                    let isOpen = true;
+
+                    h2.onclick = () => {
+                        for (let child of children) {
+                            if (isOpen) {
+                                child.style.display = 'none';
+                            } else {
+                                child.style.display = 'block';
+                            }
+                        }
+                        isOpen = !isOpen;
+                    };
+                }
+            });
+        </script>
     </section>
 
     <section id="experience">
@@ -157,8 +177,6 @@
     <section id="references">
         <h2>References</h2>
         <ul>
-            <li> <a>https://github.com/Purdue-WDC/hw-1-static-resume-mmutyampeta/edit/main/README.md</a>
-            </li>
             <li>
                 <a>https://www.geeksforgeeks.org/css-border-property/</a>
             </li>
